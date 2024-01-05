@@ -20,7 +20,7 @@
 
 #include <PID_v10.h>
 #include <SPI.h>
-#include <SparkFun_PCA9536_Arduino_Library.h>
+//#include <SparkFun_PCA9536_Arduino_Library.h>
 #include "Config.h"
 #include <PID_AutoTune_v0.h>  // https://github.com/t0mpr1c3/Arduino-PID-AutoTune-Library
 
@@ -31,8 +31,8 @@
 //#define LED_RED 0
 //#define LED_GREEN 1
 //#define LED_BLUE 2
-#define BUZZER_A 4
-#define BUZZER_B 15
+#define BUZZER 4
+//#define BUZZER_B 15
 //#define PCA9536_SDA 2
 //#define PCA9536_SCL 0
 
@@ -162,7 +162,7 @@ public:
 	unsigned long elapsed(unsigned long now);
 
 private:
-	PCA9536 pca9536;
+	//PCA9536 pca9536;
 #ifdef TEMPERATURE_SENSOR_MAX31855
 	MAX31855 thermocouple;
 #elif defined TEMPERATURE_SENSOR_MAX6675

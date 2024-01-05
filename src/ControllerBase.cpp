@@ -35,10 +35,10 @@ ControllerBase::ControllerBase(Config& cfg) :
 #ifdef TEMPERATURE_SENSOR_MAX31855
 	thermocouple.begin();
 #endif
-#ifdef PCA9536_SDA
-	Wire.begin(PCA9536_SDA, PCA9536_SCL);
-	pca9536.begin(Wire);
-#endif
+//#ifdef PCA9536_SDA
+//	Wire.begin(PCA9536_SDA, PCA9536_SCL);
+//	pca9536.begin(Wire);
+//#endif
 	_setPinMode(RELAY, OUTPUT);
 //	_setPinMode(LED_RED, OUTPUT);
 //	_setPinMode(LED_GREEN, OUTPUT);
@@ -70,10 +70,10 @@ ControllerBase::ControllerBase(Config& cfg) :
 
 	_heater = _last_heater = false;
 
-	pinMode(BUZZER_A, OUTPUT);
-	pinMode(BUZZER_B, OUTPUT);
+	pinMode(BUZZER, OUTPUT);
+	//pinMode(BUZZER_B, OUTPUT);
 
-	tone(BUZZER_A, 440, 100);
+	tone(BUZZER, 2000, 300);
 
 	setPID("default");
 
@@ -148,19 +148,18 @@ float ControllerBase::_read_temperature(){
 }
 
 void ControllerBase::_setPinMode(int pin, int mode){
-#ifdef PCA9536_SDA
-	pca9536.pinMode(pin, mode);
-#else
+//#ifdef PCA9536_SDA
+//	pca9536.pinMode(pin, mode);
+//#else
 	pinMode(pin, mode);
-#endif
+//#endif
 }
 
 void ControllerBase::_setPinValue(int pin, int value){
-#ifdef PCA9536_SDA
-	pca9536.write(pin, value);
-#else
+//#ifdef PCA9536_SDA
+//#else
 	digitalWrite(pin, value);
-#endif
+//#endif
 }
 
 PID& ControllerBase::setPID(float P, float I, float D) {
