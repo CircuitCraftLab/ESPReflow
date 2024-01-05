@@ -88,7 +88,7 @@ public:
 
 	bool load_json(const String& name, size_t max_size, THandlerFunction_parse parser);
 
-	bool setup_OTA();
+	void setup_OTA();
 
 	bool save_config(AsyncWebServerRequest *request, uint8_t * data, size_t len, size_t index, size_t total);
 	bool save_profiles(AsyncWebServerRequest *request, uint8_t * data, size_t len, size_t index, size_t total);

@@ -159,7 +159,7 @@ bool Config::load_json(const String& name, size_t max_size, THandlerFunction_par
 	return parsed;
 }
 
-bool Config::setup_OTA() {
+void Config::setup_OTA() {
 	Serial.println("OTA setup");
 
 	OTA = new EasyOTA(hostname);
