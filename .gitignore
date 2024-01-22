@@ -38,3 +38,7 @@
 wificonfig.h
 web-src-angular/node_modules/*
 web-src-angular/node_modules
+
+*.Zip
+*.LOG
+*.SchDocPreview
